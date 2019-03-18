@@ -33,5 +33,12 @@ function ytplaylist() {
   (IFS=$' '; vlc -I curses ${urls[*]})
 }
 
+function lazygit() {
+    git add .
+    git commit -a -m "$1"
+    git push
+}
+
+
 source $HOME/.mydotfiles/backup.sh
 source $HOME/.zshprivate
