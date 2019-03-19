@@ -1,10 +1,12 @@
+if [ "$TMUX" = "" ]; then tmux; fi
+
 export PATH=$HOME/.config/composer/vendor/bin:$HOME/.cargo/bin:$PATH
 export ZSH=$HOME/.oh-my-zsh
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-plugins=(git, npm, npx, cargo)
+plugins=(git, npm, npx, cargo, tmux)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -27,6 +29,7 @@ alias vimconf="vim ~/.config/nvim/init.vim"
 alias alacrconf="vim ~/.config/alacritty/alacritty.yml"
 alias tmuxconf="vim ~/.tmux.conf && tmux source-file ~/.tmux.conf"
 alias rndw="feh --randomize --bg-fill ~/Wallpappers/*.*"
+alias stoptmux="tmux kill-server"
 
 function timer(){
    date1=$((`date +%s` + $1));
@@ -57,3 +60,4 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 #source $HOME/.mydotfiles/backup.sh
 source $HOME/.zshprivate
+
