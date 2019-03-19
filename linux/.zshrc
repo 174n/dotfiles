@@ -8,12 +8,25 @@ plugins=(git, npm, npx, cargo)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+set -o vi
+
+export EDITOR="nvim"
+
+alias la='ls -lah'
+alias sdn='sudo shutdown now'
+alias discord='/opt/Discord/Discord'
+alias vim="nvim"
+alias vi="nvim"
+alias oldvim="vim"
+
 alias timelapse="ffmpeg -framerate 1 -f x11grab -s 2560,1440 -i :0.0+0,0 -vf settb=\(1/60\),setpts=N/TB/60 -r 60 -vcodec libx264 -crf 0 -preset ultrafast -threads 4 timelapse-$$.mkv"
 alias jabber="profanity"
 alias prj="cd ~/projects"
 alias settings="vim ~/.zshrc && source ~/.zshrc"
 alias vimconf="vim ~/.config/nvim/init.vim"
 alias alacrconf="vim ~/.config/alacritty/alacritty.yml"
+alias tmuxconf="vim ~/.tmux.conf && tmux source-file ~/.tmux.conf"
+alias rndw="feh --randomize --bg-fill ~/Wallpappers/*.*"
 
 function timer(){
    date1=$((`date +%s` + $1));
@@ -39,6 +52,8 @@ function lazygit() {
     git push
 }
 
+setxkbmap -layout us,de,ru -option grp:alt_shift_toggle
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 source $HOME/.mydotfiles/backup.sh
 source $HOME/.zshprivate

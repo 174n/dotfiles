@@ -41,7 +41,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'scrooloose/nerdcommenter'
 	Plug 'ervandew/supertab'
 	Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer --clang-completer --rust-completer' }
+	Plug 'ericpruitt/tmux.vim'
 
+	Plug 'pangloss/vim-javascript'
 	Plug 'mattn/emmet-vim'
 	Plug 'posva/vim-vue'
 	Plug 'ObserverOfTime/scss.vim', {'for': 'scss'}

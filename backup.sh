@@ -7,3 +7,4 @@ function dotfilesbackup() {
 		echo "$(basename -- $p) backuped"
 	done <"$d/linux.txt"
 }
+dotfilesbackup
