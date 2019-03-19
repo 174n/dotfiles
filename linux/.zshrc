@@ -55,5 +55,5 @@ function lazygit() {
 setxkbmap -layout us,de,ru -option grp:alt_shift_toggle
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-source $HOME/.mydotfiles/backup.sh
+#source $HOME/.mydotfiles/backup.sh
 source $HOME/.zshprivate
