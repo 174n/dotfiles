@@ -1,7 +1,7 @@
 "Generic stuff
 let mapleader=","
 set lazyredraw
-set relativenumber
+set number relativenumber
 set ignorecase
 set sts=2
 set ts=2
@@ -42,11 +42,15 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'ervandew/supertab'
 	Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer --clang-completer --rust-completer' }
 	Plug 'ericpruitt/tmux.vim'
+	Plug 'w0rp/ale'
+	Plug 'kien/ctrlp.vim'
 
 	Plug 'pangloss/vim-javascript'
 	Plug 'mattn/emmet-vim'
 	Plug 'posva/vim-vue'
 	Plug 'ObserverOfTime/scss.vim', {'for': 'scss'}
+
+	"Plug 'stevearc/vim-arduino'
 call plug#end()
 
 "NerdTree
@@ -61,6 +65,13 @@ nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 
 "NerdCommenter
 map <C-_> <Plug>NERDCommenterToggle
+
+"CtrlP sessions
+nnoremap <Leader>ss :CtrlPObsession<CR>
+
+"Emmet
+autocmd VimEnter * EmmetInstall
+autocmd FileType html,css,scss imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 "True Colors
 if (has("nvim"))
@@ -81,4 +92,9 @@ colorscheme material
 au BufRead,BufNewFile *.scss set filetype=scss.css
 
 "Custom keybindings
-nmap <leader>b :!bash %<CR>
+autocmd filetype sh nnoremap <F4> :w <bar> exec 'bash %<CR>'
+autocmd filetype c nnoremap <F4> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r')<CR>
+autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype c nnoremap <leader>m :w <bar> :make<CR>

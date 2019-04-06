@@ -1,4 +1,4 @@
-if [ "$TMUX" = "" ]; then tmux; fi
+#if [ "$TMUX" = "" ]; then tmux attach; fi
 
 export PATH=$HOME/.config/composer/vendor/bin:$HOME/.cargo/bin:$PATH
 export ZSH=$HOME/.oh-my-zsh
@@ -6,7 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-plugins=(git, npm, npx, cargo, tmux)
+plugins=(git history-substring-search)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -21,15 +21,22 @@ alias vim="nvim"
 alias vi="nvim"
 alias oldvim="vim"
 
+alias lessh='LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s" less -M '
+
 alias timelapse="ffmpeg -framerate 1 -f x11grab -s 2560,1440 -i :0.0+0,0 -vf settb=\(1/60\),setpts=N/TB/60 -r 60 -vcodec libx264 -crf 0 -preset ultrafast -threads 4 timelapse-$$.mkv"
 alias jabber="profanity"
 alias prj="cd ~/projects"
 alias settings="vim ~/.zshrc && source ~/.zshrc"
+alias settingsprvt="vim ~/.zshprivate && source ~/.zshrc"
 alias vimconf="vim ~/.config/nvim/init.vim"
 alias alacrconf="vim ~/.config/alacritty/alacritty.yml"
 alias tmuxconf="vim ~/.tmux.conf && tmux source-file ~/.tmux.conf"
+alias i3conf="vim ~/.config/i3/config"
 alias rndw="feh --randomize --bg-fill ~/Wallpappers/*.*"
 alias stoptmux="tmux kill-server"
+
+alias postgresstart="sudo systemctl start postgresql"
+alias postgresstop="sudo systemctl stop postgresql"
 
 function timer(){
    date1=$((`date +%s` + $1));
@@ -58,6 +65,4 @@ function lazygit() {
 setxkbmap -layout us,de,ru -option grp:alt_shift_toggle
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-#source $HOME/.mydotfiles/backup.sh
 source $HOME/.zshprivate
-
