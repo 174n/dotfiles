@@ -44,6 +44,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'ericpruitt/tmux.vim'
 	Plug 'w0rp/ale'
 	Plug 'kien/ctrlp.vim'
+	Plug 'mboughaba/i3config.vim'
 
 	Plug 'pangloss/vim-javascript'
 	Plug 'mattn/emmet-vim'
@@ -90,6 +91,10 @@ colorscheme material
 
 "Languages
 au BufRead,BufNewFile *.scss set filetype=scss.css
+aug i3config_ft_detection
+  au!
+  au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+aug end
 
 "Custom keybindings
 autocmd filetype sh nnoremap <F4> :w <bar> exec 'bash %<CR>'
