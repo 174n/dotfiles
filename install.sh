@@ -4,7 +4,7 @@ create_link() {
 	local filename=$(basename -- "$1")
 	local dirname=$(dirname "$1")
 	local backupname="${filename%.*}_old.${filename##*.}"
-	if [ -e "$1" ] && [[ ! -h "$1" ]]; then
+	if [ -e "$1" ] && [[ ! -h "$1" ]] || [ ! -f "$1" ]; then
 		mv "$1" "$dirname/$backupname"
 		echo -e "Backup of $filename was created"
 		ln -s "$d/linux/$filename" $pa
