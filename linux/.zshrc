@@ -37,6 +37,7 @@ alias stoptmux="tmux kill-server"
 
 alias postgresstart="sudo systemctl start postgresql"
 alias postgresstop="sudo systemctl stop postgresql"
+alias postgresuser="sudo su - postgres"
 
 function timer(){
    date1=$((`date +%s` + $1));

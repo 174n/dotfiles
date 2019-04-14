@@ -45,6 +45,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'w0rp/ale'
 	Plug 'kien/ctrlp.vim'
 	Plug 'mboughaba/i3config.vim'
+	Plug 'mhinz/vim-startify'
+	Plug 'tpope/vim-abolish'
 
 	Plug 'pangloss/vim-javascript'
 	Plug 'mattn/emmet-vim'
@@ -71,7 +73,8 @@ map <C-_> <Plug>NERDCommenterToggle
 nnoremap <Leader>ss :CtrlPObsession<CR>
 
 "Emmet
-autocmd VimEnter * EmmetInstall
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,scss EmmetInstall
 autocmd FileType html,css,scss imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 "True Colors
