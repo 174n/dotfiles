@@ -6,6 +6,11 @@ set ignorecase
 set sts=2
 set ts=2
 set sw=2
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 
 "windows navigation
 map <silent> <C-h> :call WinMove('h')<CR>
