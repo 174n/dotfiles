@@ -25,6 +25,7 @@ alias lessh='LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s" less -M '
 
 alias timelapse="ffmpeg -framerate 1 -f x11grab -s 2560,1440 -i :0.0+0,0 -vf settb=\(1/60\),setpts=N/TB/60 -r 60 -vcodec libx264 -crf 0 -preset ultrafast -threads 4 timelapse-$$.mkv"
 alias jabber="profanity"
+alias discordt="terminal-discord"
 alias prj="cd ~/projects"
 alias settings="vim ~/.zshrc && source ~/.zshrc"
 alias settingsprvt="vim ~/.zshprivate && source ~/.zshrc"

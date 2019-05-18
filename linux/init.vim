@@ -2,15 +2,17 @@
 let mapleader=","
 set lazyredraw
 set number relativenumber
+set expandtab
 set ignorecase
 set sts=2
 set ts=2
 set sw=2
-if exists('+colorcolumn')
-  set colorcolumn=80
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
+set listchars=tab:>-,trail:~,extends:>,precedes:<,space:·
+"if exists('+colorcolumn')
+  "set colorcolumn=80
+"else
+  "au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+"endif
 
 "windows navigation
 map <silent> <C-h> :call WinMove('h')<CR>
@@ -52,6 +54,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'mboughaba/i3config.vim'
 	Plug 'mhinz/vim-startify'
 	Plug 'tpope/vim-abolish'
+	Plug 'editorconfig/editorconfig-vim'
 
 	Plug 'pangloss/vim-javascript'
 	Plug 'mattn/emmet-vim'
@@ -79,8 +82,8 @@ nnoremap <Leader>ss :CtrlPObsession<CR>
 
 "Emmet
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,scss EmmetInstall
-autocmd FileType html,css,scss imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+autocmd FileType html,css,scss,vue EmmetInstall
+autocmd FileType html,css,scss,vue imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 "True Colors
 if (has("nvim"))
@@ -105,6 +108,7 @@ aug i3config_ft_detection
 aug end
 
 "Custom keybindings
+noremap <Leader>w :set list!<CR>
 autocmd filetype sh nnoremap <F4> :w <bar> exec 'bash %<CR>'
 autocmd filetype c nnoremap <F4> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r')<CR>
 autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
