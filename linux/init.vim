@@ -81,9 +81,9 @@ map <C-_> <Plug>NERDCommenterToggle
 nnoremap <Leader>ss :CtrlPObsession<CR>
 
 "Emmet
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,scss,vue EmmetInstall
-autocmd FileType html,css,scss,vue imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+"let g:user_emmet_install_global = 0
+"autocmd FileType html,css,scss,vue EmmetInstall
+"autocmd FileType html,css,scss,vue imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 "True Colors
 if (has("nvim"))
@@ -114,4 +114,5 @@ autocmd filetype c nnoremap <F4> :w <bar> exec '!gcc '.shellescape('%').' -o '.s
 autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r')<CR>
 autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <F6> :w <bar> exec '!./run.sh'<CR>
 autocmd filetype c nnoremap <leader>m :w <bar> :make<CR>

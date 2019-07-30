@@ -40,6 +40,8 @@ alias postgresstart="sudo systemctl start postgresql"
 alias postgresstop="sudo systemctl stop postgresql"
 alias postgresuser="sudo su - postgres"
 
+alias syncgd="cd $HOME/rclone && ./rcloneSync.sh && cd -"
+
 function timer(){
    date1=$((`date +%s` + $1));
    while [ "$date1" -ge `date +%s` ]; do
